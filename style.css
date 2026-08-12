@@ -66,3 +66,14 @@ li{
     margin-left:5px;
     padding:6px 10px;
 }
+
+.filter-section {
+    margin: 15px 0;
+}
+
+.filter-section input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
