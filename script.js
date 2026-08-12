@@ -43,3 +43,18 @@ function addTask() {
     taskInput.value = "";
     dueDate.value = "";
 }
+
+function searchTasks() {
+    const searchText = document.getElementById("searchInput").value.toLowerCase();
+    const tasks = taskList.getElementsByTagName("li");
+
+    for (let i = 0; i < tasks.length; i++) {
+        const taskText = tasks[i].innerText.toLowerCase();
+
+        if (taskText.includes(searchText)) {
+            tasks[i].style.display = "";
+        } else {
+            tasks[i].style.display = "none";
+        }
+    }
+}
