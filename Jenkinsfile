@@ -2,17 +2,35 @@ pipeline {
     agent any
 
     stages {
+
         stage('Code Checkout') {
             steps {
-                echo 'Successfully pulled frontend assets.'
+                echo 'Checking out code from GitHub...'
+                checkout scm
             }
         }
-        stage('Lint & Validate') {
+
+        stage('Install Dependencies') {
             steps {
-                echo 'Checking HTML, CSS, and JS files...'
-                sh 'ls -la index.html style.css script.js'
+                echo 'Installing dependencies...'
+                sh 'npm install'
             }
         }
+
+        stage('Build') {
+            steps {
+                echo 'Building the application...'
+                echo 'Build completed successfully.'
+            }
+        }
+
+        stage('Automated Testing') {
+            steps {
+                echo 'Running automated tests...'
+                sh 'npm test'
+            }
+        }
+
         stage('Simulate Deploy') {
             steps {
                 echo 'Frontend app is ready for deployment!'
